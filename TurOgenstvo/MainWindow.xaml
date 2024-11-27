@@ -1,0 +1,37 @@
+﻿<Window x:Class="TurOgenstvo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TurOgenstvo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <!--<DataGrid x:Name="ldd">
+        </DataGrid>-->
+        <StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBox x:Name="SearchBox" Width="200" Text="Введите для поиска..." Margin="0,0,10,0" TextChanged="SearchBox_TextChanged" />
+                <ComboBox x:Name="SortComboBox" Width="150" SelectionChanged="SortComboBox_SelectionChanged">
+                    <ComboBoxItem Content="Номер" />
+                    <ComboBoxItem Content="Название" />
+                    <ComboBoxItem Content="Цена" />
+                </ComboBox>
+            </StackPanel>
+
+            <!-- Список -->
+            <ListView x:Name="ldd" ItemsSource="{Binding}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Номер" DisplayMemberBinding="{Binding Номер}" />
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Наименование}" />
+                        <GridViewColumn Header="Цена" DisplayMemberBinding="{Binding Цена}" />
+                        <GridViewColumn Header="Тип тура" DisplayMemberBinding="{Binding Типы}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        <Button Content="удалить" Click="Button_Click_1"  Width="100" Height="25" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20"/>
+    </Grid>
+</Window>
